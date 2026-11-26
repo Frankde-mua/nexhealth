@@ -3,3 +3,9 @@
 data/
 node_modules/
 dist/
+
+.env.*
+!.env.example
+data/
+*.sqlite*
+dist/
