@@ -9,3 +9,9 @@ dist/
 data/
 *.sqlite*
 dist/
+
+!data/
+data/*
+!data/icd10-2014.json
+
+!data/icd10-full-2014.json
