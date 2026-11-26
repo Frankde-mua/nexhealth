@@ -1,0 +1,3 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {authorize,validate} from './catalogue.mjs';
+test('catalogue permissions',()=>{assert.throws(()=>authorize({verified:true,role:'pharmacy'}));assert.throws(()=>authorize({verified:false,role:'practice'}));assert.throws(()=>authorize({verified:true,role:'practice'},true));authorize({verified:true,role:'admin'},true)});
+test('manual code validation',()=>{assert.equal(validate({code:'j02.9',description:'Example',reference:'Official reference',reason:'Missing'}).code,'J029');assert.throws(()=>validate({code:'invalid'}));assert.throws(()=>validate({code:'J029',description:'Example'}))});
