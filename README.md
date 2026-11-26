@@ -12,3 +12,8 @@ Uses Neon PostgreSQL and a single Render web service serving both React and API,
 Existing SQLite records are NOT automatically imported. Keep your old database backup. For a new empty Neon database only, the optional import script can be run locally before the first backend startup. It imports the legacy state and clears sessions. Do not use real patient data until security and POPIA review. Free Render services may sleep; continuous monitoring needs an always-on service.
 
 Verification: five existing business-logic tests pass; live Neon, Render deployment and frontend build are not verified. No lockfile is included.
+
+## v0.7 consultations
+Upgrade source files in the existing repository; retain Render environment variables and Neon database. Back up the database first. New consultation records are added lazily to the existing JSONB state; no destructive migration. Verified practice accounts have a Consultations menu. Schedule, record notes, record consent attestations and close appointments. No video service, clinical AI, legal consent validation or prescribing is included. Practice account is the current access boundary, not individual clinician credentials. Use fictional data only.
+
+TypeScript config now includes DOM.Iterable for FormData iteration. Run `npm install`, `npm test`, `npm run typecheck`, `npm run build`. If type checking still fails, report exact errors; existing development workaround is `npm install --include=dev && npx vite build` on Render. Keep `npm run server` as start command. Live Neon and frontend compilation have not been verified for this release.
